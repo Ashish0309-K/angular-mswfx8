@@ -1,0 +1,14 @@
+<div class="coach">
+  <div *ngFor="let row of seats" class="row">
+    <button *ngFor="let seat of row" 
+            [ngClass]="{'booked': seat.isBooked}" 
+            (click)="toggleSeat(seat)">
+      {{ seat.seatNumber }}
+    </button>
+  </div>
+</div>
+
+<div class="booking-form">
+  <input type="number" #seatCount placeholder="Enter number of seats" min="1" max="7">
+  <button (click)="onBookSeats(seatCount.value)">Book Seats</button>
+</div>
